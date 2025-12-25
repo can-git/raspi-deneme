@@ -2,3 +2,4 @@
 mosquitto
 # Add jq needed to retrieve docker images
 jq
+skopeo
