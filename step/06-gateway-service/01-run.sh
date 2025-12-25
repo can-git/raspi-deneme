@@ -3,6 +3,9 @@
 echo "Create wirepas folder on boot"
 install -v -d "${ROOTFS_DIR}/boot/firmware/nu"
 
+echo "Move ENV files into boot/firmware/nu folder"
+install -m 755 templates/* "${ROOTFS_DIR}/boot/firmware/nu/"
+
 echo "Add docker compose to home folder"
 install -m 755 files/docker-compose.yml	"${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
 
