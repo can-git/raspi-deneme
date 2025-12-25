@@ -23,4 +23,17 @@ on_chroot << EOF
 systemctl enable wirepasGatewayUpdate.service
 
 systemctl enable wirepasSinkConfigurator.service
+
+skopeo copy \
+  docker://wirepas/gateway_transport_service:latest \
+  docker-archive:transport_service.tar:wirepas/gateway_transport_service:latest
+
+skopeo copy \
+  docker://wirepas/gateway_sink_service:latest \
+  docker-archive:sink_service.tar:wirepas/gateway_sink_service:latest
+
+skopeo copy \
+  docker://wirepas/gateway_dbus_service:latest \
+  docker-archive:dbus_service.tar:wirepas/gateway_dbus_service:latest
+
 EOF
