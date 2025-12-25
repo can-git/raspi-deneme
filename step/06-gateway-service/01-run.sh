@@ -23,17 +23,4 @@ on_chroot << EOF
 systemctl enable wirepasGatewayUpdate.service
 
 systemctl enable wirepasSinkConfigurator.service
-
-# Download all images to speed up first boot and generate tar file out of it
-cd /home/${FIRST_USER_NAME}
-
-docker pull wirepas/gateway_transport_service:latest
-docker save wirepas/gateway_transport_service:latest -o transport_service.tar
-
-docker pull wirepas/gateway_sink_service:latest
-docker save wirepas/gateway_sink_service:latest -o sink_service.tar
-
-docker pull wirepas/gateway_dbus_service:latest
-docker save wirepas/gateway_dbus_service:latest -o dbus_service.tar
-
 EOF
